@@ -8,6 +8,7 @@
 typedef uint8_t mctp_eid_t;
 
 /* MCTP packet definitions */
+/* clang-format off */
 struct mctp_hdr {
 	uint8_t	ver;
 	uint8_t	dest;
@@ -23,6 +24,7 @@ struct mctp_hdr {
 #define MCTP_HDR_SEQ_MASK	(0x3)
 #define MCTP_HDR_TAG_SHIFT	(0)
 #define MCTP_HDR_TAG_MASK	(0x7)
+/* clang-format on */
 
 /* Maximum size of *payload* data in a MCTP packet
  * @todo: dynamic sixing based on channel implementation.
@@ -39,12 +41,14 @@ struct mctp_hdr {
 #define MCTP_PKTBUF_SIZE	(MCTP_PKTBUF_BINDING_PAD + \
 		(sizeof(struct mctp_hdr) + MCTP_MTU))
 
+/* clang-format off */
 struct mctp_pktbuf {
 	unsigned char	data[MCTP_PKTBUF_SIZE];
 	uint8_t		start, end;
 	uint8_t		mctp_hdr_off;
 	struct mctp_pktbuf *next;
 };
+/* clang-format on */
 
 struct mctp_pktbuf *mctp_pktbuf_alloc(uint8_t len);
 void mctp_pktbuf_free(struct mctp_pktbuf *pkt);
@@ -74,12 +78,14 @@ int mctp_message_tx(struct mctp *mctp, mctp_eid_t eid,
 		void *msg, size_t msg_len);
 
 /* hardware bindings */
+/* clang-format off */
 struct mctp_binding {
 	const char	*name;
 	uint8_t		version;
 	int		(*tx)(struct mctp_binding *binding,
 				struct mctp_pktbuf *pkt);
 };
+/* clang-format on */
 
 void mctp_bus_rx(struct mctp *mctp, unsigned long bus_id,
 		struct mctp_pktbuf *pkt);

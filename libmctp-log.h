@@ -12,11 +12,13 @@
 
 #include <stdio.h>
 
+/* clang-format off */
 #define MCTP_LOG_ERR		0
 #define MCTP_LOG_WARNING	0
 #define MCTP_LOG_NOTICE		0
 #define MCTP_LOG_INFO		0
 #define MCTP_LOG_DEBUG		0
+/* clang-format on */
 
 #define mctp_prlog(x, fmt, ...) fprintf(stderr, fmt "\n", ##__VA_ARGS__)
 
@@ -24,11 +26,13 @@
 
 #include <syslog.h>
 
+/* clang-format off */
 #define MCTP_LOG_ERR		LOG_ERR
 #define MCTP_LOG_WARNING	LOG_WARNING
 #define MCTP_LOG_NOTICE		LOG_NOTICE
 #define MCTP_LOG_INFO		LOG_INFO
 #define MCTP_LOG_DEBUG		LOG_DEBUG
+/* clang-format on */
 
 #define mctp_prlog(x, fmt, ...) syslog(x, fmt, ##__VA_ARGS__)
 
@@ -49,6 +53,7 @@
 #define mctp_prwarn(fmt, ...) mctp_prlog(MCTP_LOG_WARNING, fmt, ##__VA_ARGS__)
 #define mctp_prinfo(fmt, ...) mctp_prlog(MCTP_LOG_INFO, fmt, ##__VA_ARGS__)
 #define mctp_prdebug(fmt, ...)  mctp_prlog(MCTP_LOG_DEBUG, fmt, ##__VA_ARGS__)
+
 
 
 #endif /* _LIBMCTP_LOG_H */

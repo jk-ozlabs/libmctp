@@ -4,6 +4,7 @@
 
 #include "libmctp-alloc.h"
 
+/* clang-format off */
 struct {
 	void	*(*alloc)(size_t);
 	void	(*free)(void *);
@@ -13,6 +14,7 @@ struct {
 	free,
 	realloc,
 };
+/* clang-format off */
 
 /* internal-only allocation functions */
 void *__mctp_alloc(size_t size)

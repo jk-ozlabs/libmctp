@@ -17,6 +17,7 @@
 #include "libmctp-log.h"
 #include "libmctp-serial.h"
 
+/* clang-format off */
 struct mctp_binding_serial {
 	struct mctp_binding	binding;
 	struct mctp		*mctp;
@@ -66,6 +67,8 @@ struct mctp_serial_trailer {
 	uint8_t fcs_lsb;
 	uint8_t	flag;
 };
+
+/* clang-format on */
 
 static size_t mctp_serial_pkt_escape(struct mctp_pktbuf *pkt, uint8_t *buf)
 {

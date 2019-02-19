@@ -17,6 +17,7 @@
 
 /* Internal data structures */
 
+/* clang-format off */
 struct mctp_bus {
 	mctp_eid_t		eid;
 	struct mctp_binding	*binding;
@@ -49,6 +50,7 @@ struct mctp {
 	 */
 	struct mctp_msg_ctx	msg_ctxs[16];
 };
+/* clang-format on */
 
 #ifndef BUILD_ASSERT
 #define BUILD_ASSERT(x) \
